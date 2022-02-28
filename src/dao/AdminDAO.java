@@ -1,3 +1,4 @@
+// all database related fuctionality in this layer
 package dao;
 
 import java.sql.Connection;
@@ -6,8 +7,10 @@ import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 
 public class AdminDAO {
+    
     public static Connection con;
     
+    // gettting DB connection
     static{
         con =  MyConnection.connect();
     }
