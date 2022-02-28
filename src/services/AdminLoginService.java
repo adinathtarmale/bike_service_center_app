@@ -22,6 +22,7 @@ public class AdminLoginService {
         this.pass_word = pass_word;
     }
 
+    // validation and then passing request forword for further operations
     public int doLogin(String username, String pass_word) {
         setUsername(username);
         setPassword(pass_word);
