@@ -1,3 +1,4 @@
+// All user related database operations
 package dao;
 
 import java.sql.Connection;
@@ -22,7 +23,8 @@ public class UserDAO {
         vr = new ViewRequest();
         ar = new AddRequest();
     }
-
+    
+    // getting all data reated to the bike_number provided
     public ResultSet showRecords(String bikeNum) {
         try {
             pst = con.prepareStatement("SELECT username, bike_name, bike_number, date_request, progress, amount FROM services WHERE bike_number = ?");
@@ -37,6 +39,7 @@ public class UserDAO {
         return null;
     }
 
+    // inserting request to the database
     public boolean addRequ(String[] custAdd) {
         try {
             pst = con.prepareStatement("SELECT username, bike_name, bike_number, date_request, progress FROM services WHERE bike_number = ?");
@@ -61,6 +64,7 @@ public class UserDAO {
         return false;
     }
 
+    // updation of the user request made erlier
     public int updateReq(String date_request, String bike_number) {
         try {
             pst = con.prepareStatement("UPDATE services SET date_request=? where bike_number=?");
@@ -73,6 +77,7 @@ public class UserDAO {
         }
     }
 
+    // deteing the request
     public int deleteReq(String bike_number, String bike_name) {
         try {
             pst = con.prepareStatement("delete from services where bike_number=? and bike_name=?");
@@ -86,6 +91,7 @@ public class UserDAO {
 
     }
 
+    // user payment and the deleting the record
     public int paymentReq(String bike_number) {
         try {
             pst = con.prepareStatement("delete from services where bike_number=? and amount not in ('')");
