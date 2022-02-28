@@ -1,3 +1,4 @@
+// user related service layer
 package services;
 import dao.UserDAO;
 import java.sql.ResultSet;
@@ -53,7 +54,7 @@ public class AddRequest {
     }
 
     public int insertAddServicesTbl(String[] custAdd) {
-        
+        // validation for empty request
         if(custAdd[0].equals("") || custAdd[1].equals("") || custAdd[2].equals("") || custAdd[3].equals("") || custAdd[4].equals("")){
             return 0;
         }else{
